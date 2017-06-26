@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Prefabs/CanvasCamera.meta
 guid: 162e6aedf76925c46b2b58a28e117ba3
 folderAsset: yes
 timeCreated: 1498519138
+=======
+guid: b358a2b6a39a46240a435689ac03f663
+folderAsset: yes
+timeCreated: 1498518941
+>>>>>>> Stashed changes:Assets/Materials.meta
 licenseType: Free
 DefaultImporter:
   userData: 
