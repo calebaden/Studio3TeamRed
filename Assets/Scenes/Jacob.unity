@@ -1745,6 +1745,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6a65e0891710bd43ad986642bc4f927, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &529904121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 529904123}
+  - component: {fileID: 529904122}
+  m_Layer: 0
+  m_Name: Keys
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &529904122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529904121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee741c90390df6469589ed2a5d02a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameStored: _usernameStored
+  passwordStored: _passwordStored
+  nameStored: _nameStored
+  ageStored: _AgeStored
+  isMale: _isMale
+  playerGrade: _playerGrade
+--- !u!4 &529904123
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529904121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 269.0771, y: 502.10178, z: -633.2877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534049398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1947,7 @@ GameObject:
   - component: {fileID: 618725149}
   - component: {fileID: 618725148}
   - component: {fileID: 618725147}
+  - component: {fileID: 618725150}
   m_Layer: 5
   m_Name: UI_LoginButton
   m_TagString: Untagged
@@ -1965,7 +2012,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 618725148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 618725150}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &618725148
@@ -2001,6 +2059,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 618725145}
+--- !u!114 &618725150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 618725145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb9080e3fad5ed4e85b0554c91baff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameEntry: {fileID: 406843739}
+  passwordEntry: {fileID: 210303594}
 --- !u!1 &700312051
 GameObject:
   m_ObjectHideFlags: 0
@@ -4458,8 +4529,9 @@ GameObject:
   - component: {fileID: 2058097766}
   - component: {fileID: 2058097765}
   - component: {fileID: 2058097764}
+  - component: {fileID: 2058097767}
   m_Layer: 5
-  m_Name: UI_LoginButton
+  m_Name: UI_CreateAccountButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4522,7 +4594,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2058097765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2058097767}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2058097765
@@ -4558,3 +4641,14 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058097762}
+--- !u!114 &2058097767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058097762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e88886f928b00d4eaf3dc7cb170c60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
