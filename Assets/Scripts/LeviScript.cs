@@ -9,6 +9,7 @@ public class LeviScript : MonoBehaviour {
     public GameObject scannerCanvas;
     public GameObject questsCanvas;
     public GameObject miniGameCanvas;
+    public GameObject questCompleteCanvas;
 
     public Toggle taskOne;
     public Toggle taskTwo;
@@ -17,16 +18,16 @@ public class LeviScript : MonoBehaviour {
     public Toggle taskFive;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+       
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+        questComplete();
+    }
 
     public void gardenButtonPressed()
     {
@@ -80,6 +81,24 @@ public class LeviScript : MonoBehaviour {
     public void taskFiveComplete()
     {
         taskFive.isOn = true;
+    }
+
+    public void questComplete()
+    {
+        if (taskOne.isOn == true && taskTwo.isOn == true && taskThree.isOn == true && taskFour.isOn == true && taskFive.isOn == true)
+        {
+            questCompleteCanvas.SetActive(true);
+        }
+    }
+
+    public void questCompleteClose()
+    {
+        questCompleteCanvas.SetActive(false);
+        taskOne.isOn = false;
+        taskTwo.isOn = false;
+        taskThree.isOn = false;
+        taskFour.isOn = false;
+        taskFive.isOn = false;
     }
 
 }
