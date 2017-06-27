@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VirtualGardenScript : MonoBehaviour
 {
@@ -11,8 +12,14 @@ public class VirtualGardenScript : MonoBehaviour
     private GameObject seedSelect;
     [SerializeField]
     private GameObject plantInfo;
+    [SerializeField]
+    private Text seeds;
 
     public GameObject selectedPlot;
+
+    public Slider growthSlider;
+
+    public int seedCount;
 
     // Use this for initialization
     void Start ()
@@ -24,7 +31,12 @@ public class VirtualGardenScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+		if (plantInfo.activeSelf == true && selectedPlot != null)
+        {
+            growthSlider.value = selectedPlot.GetComponent<GardenPlotScript>().growthAmount;
+        }
+
+        seeds.text = seedCount + " X";
 	}
 
     public void LoadScene (int buildIndex)
@@ -43,7 +55,7 @@ public class VirtualGardenScript : MonoBehaviour
                 seedSelect.SetActive(true);
             }
         }
-        else if (selectedPlot.GetComponent<GardenPlotScript>().plotState == 1)
+        else
         {
             if (plantInfo.activeSelf == false)
             {
@@ -63,7 +75,15 @@ public class VirtualGardenScript : MonoBehaviour
 
     public void PlantSeed (int type)
     {
-        selectedPlot.GetComponent<GardenPlotScript>().UpdatePlant(type);
-        CloseWindow(seedSelect);
+        if (seedCount > 0)
+        {
+            selectedPlot.GetComponent<GardenPlotScript>().UpdatePlant(type);
+            seedCount--;
+            CloseWindow(seedSelect);
+        }
+        else
+        {
+            Debug.Log("You have no seeds!");
+        }
     }
 }
