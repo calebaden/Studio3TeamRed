@@ -19,6 +19,9 @@ public class GardenPlotScript : MonoBehaviour
     public Texture sunflower;
     public Texture carrot;
 
+    public float growthAmount;
+    public float growthRate;
+
     // Use this for initialization
     void Start ()
     {
@@ -30,7 +33,15 @@ public class GardenPlotScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+		if (plotState == 1)
+        {
+            growthAmount += growthRate * Time.deltaTime;
+            growthAmount = Mathf.Clamp01(growthAmount);
+            if (growthAmount >= 1)
+            {
+                FinishGrowing();
+            }
+        }
 	}
 
     public void UpdatePlant (int seedType)
@@ -46,5 +57,20 @@ public class GardenPlotScript : MonoBehaviour
         }
 
         seed.gameObject.SetActive(true);
+    }
+
+    public void FinishGrowing ()
+    {
+        plotState = 2;
+        seed.gameObject.SetActive(false);
+        if (plantType == "Sunflower")
+        {
+            
+        }
+        else if (plantType == "Carrot")
+        {
+
+        }
+        plant.gameObject.SetActive(true);
     }
 }
