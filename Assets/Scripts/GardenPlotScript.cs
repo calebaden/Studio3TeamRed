@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class GardenPlotScript : MonoBehaviour
 {
-    VirtualGardenScript vgScr;
-
     // 0 = Empty, 1 = Seed, 2 = Plant
     public int plotState;
     public string plantType;
@@ -16,18 +14,25 @@ public class GardenPlotScript : MonoBehaviour
     [SerializeField]
     private Image plant;
 
-    public Texture sunflower;
-    public Texture carrot;
+    public Slider plotWater;
+
+    public Sprite sunflower;
+    public Sprite carrot;
 
     public float growthAmount;
     public float growthRate;
 
+    public float waterAmount;
+    public float waterIncrease;
+    public float waterDecrease;
+    public float maxWater;
+
     // Use this for initialization
     void Start ()
     {
-        vgScr = GameObject.FindGameObjectWithTag("VirtualGarden").GetComponent<VirtualGardenScript>();
         seed.gameObject.SetActive(false);
         plant.gameObject.SetActive(false);
+        plotWater.gameObject.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -40,6 +45,22 @@ public class GardenPlotScript : MonoBehaviour
             if (growthAmount >= 1)
             {
                 FinishGrowing();
+            }
+        }
+        if (plotState != 0)
+        {
+            if (waterAmount > 0)
+            {
+                waterAmount -= waterDecrease * Time.deltaTime;
+            }
+            else
+            {
+                KillPlant();
+            }
+
+            if (plotWater != null)
+            {
+                plotWater.value = waterAmount;
             }
         }
 	}
@@ -65,12 +86,33 @@ public class GardenPlotScript : MonoBehaviour
         seed.gameObject.SetActive(false);
         if (plantType == "Sunflower")
         {
-            
+            plant.sprite = sunflower;
         }
         else if (plantType == "Carrot")
         {
-
+            plant.sprite = carrot;
         }
         plant.gameObject.SetActive(true);
+    }
+
+    public void KillPlant ()
+    {
+        if (plant.gameObject.activeSelf == true)
+        {
+            plant.gameObject.SetActive(false);
+        }
+        if (seed.gameObject.activeSelf == true)
+        {
+            seed.gameObject.SetActive(false);
+        }
+        plotState = 0;
+        plantType = null;
+        growthAmount = 0;
+        waterAmount = 0.1f;
+    }
+
+    public void WaterPlant ()
+    {
+        waterAmount += waterIncrease * Time.deltaTime;
     }
 }
