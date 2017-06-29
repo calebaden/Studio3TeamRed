@@ -19,6 +19,7 @@ public class UI_SwitchPanel : MonoBehaviour {
 
 	public void OnClick()
 	{
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 		Debug.Log("Going to the " + DestinationPanel.name + " screen.");
         DestinationPanel.SetActive(true);
         thisPanel.SetActive(false);
