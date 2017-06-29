@@ -10,6 +10,7 @@ public class MinigameManager : MonoBehaviour
     public Slider progressBar;
     public Text progressText;
     public GameObject congratsMessage;
+    public LeviScript leviScript;
 
     // Use this for initialization
     void Start()
@@ -26,6 +27,7 @@ public class MinigameManager : MonoBehaviour
         if (objectivesCompleted == 5)
         {
             congratsMessage.gameObject.SetActive(true);
+            leviScript.plantHasBeenCut = true;
         }
     }
 }
