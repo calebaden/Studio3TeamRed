@@ -9,7 +9,7 @@ public class BranchScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        MinigameController = GameObject.Find("UIManager");
+        MinigameController = GameObject.Find("BushManager");
     }
 
     // Update is called once per frame

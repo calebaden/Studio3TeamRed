@@ -27,7 +27,6 @@ public class MinigameManager : MonoBehaviour
         if (objectivesCompleted == 5)
         {
             congratsMessage.gameObject.SetActive(true);
-            leviScript.plantHasBeenCut = true;
         }
     }
 }

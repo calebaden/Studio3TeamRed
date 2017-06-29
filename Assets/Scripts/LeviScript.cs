@@ -29,6 +29,8 @@ public class LeviScript : MonoBehaviour {
     public int plantScraps = 5;
     public Text plantScrapNumText;
 
+    public GameObject bushManager;
+
     // Use this for initialization
     void Start()
     {
@@ -121,7 +123,10 @@ public class LeviScript : MonoBehaviour {
         plantCuttingCanvas.SetActive(false);
         scannerCanvas.SetActive(true);
 
-        
+        if(bushManager.gameObject.GetComponent<MinigameManager>().objectivesCompleted >= 5)
+        {
+            plantHasBeenCut = true;
+        }
     }
     public void exitCompostBinButton()
     {

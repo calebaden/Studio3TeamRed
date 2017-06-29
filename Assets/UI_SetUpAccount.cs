@@ -34,13 +34,13 @@ public class UI_SetUpAccount : MonoBehaviour {
 	{
 	    // Set the info
         // username
-		PlayerPrefs.SetString(Keys.instance.usernameStored, usernameEntry.text);
+		PlayerPrefs.SetString(Keys.instance.usernameStored, usernameEntry.ToString());
 
         // password
-		 PlayerPrefs.SetString(Keys.instance.passwordStored, passwordEntry.text);
+		 PlayerPrefs.SetString(Keys.instance.passwordStored, passwordEntry.ToString());
 
         // Name
-		PlayerPrefs.SetString(Keys.instance.nameStored, nameEntry.text);
+		PlayerPrefs.SetString(Keys.instance.nameStored, nameEntry.ToString());
 
         // Parse for age
 		int.TryParse(ageEntry.text, out ageNumber);

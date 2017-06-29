@@ -7,7 +7,8 @@ TagManager:
   - MinigameManager
   - VirtualGarden
   - GardenPlot
-  - UIManager
+  - BushManager
+  - WeedManager
   layers:
   - Default
   - TransparentFX

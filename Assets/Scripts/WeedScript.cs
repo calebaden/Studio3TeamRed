@@ -8,7 +8,7 @@ public class WeedScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        MinigameController = GameObject.Find("MinigameManager");
+        MinigameController = GameObject.Find("WeedManager");
     }
 	
 	// Update is called once per frame
