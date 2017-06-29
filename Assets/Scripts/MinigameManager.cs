@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MinigameManager : MonoBehaviour {
+public class MinigameManager : MonoBehaviour
+{
 
-    public float numWeedsPulled;
+    public float objectivesCompleted;
     public Slider progressBar;
     public Text progressText;
+    public GameObject congratsMessage;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (numWeedsPulled == 5)
-        {
-            Debug.Log("YOU'RE WINRAR");
-        }
-        progressBar.value = numWeedsPulled;
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        progressBar.value = objectivesCompleted;
         progressText.text = progressBar.value + "/5";
-	}
+
+        if (objectivesCompleted == 5)
+        {
+            congratsMessage.gameObject.SetActive(true);
+        }
+    }
 }

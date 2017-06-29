@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeedScript : MonoBehaviour {
+public class BranchScript : MonoBehaviour {
 
     public GameObject MinigameController;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         MinigameController = GameObject.Find("MinigameManager");
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void PullWeed()
     {
