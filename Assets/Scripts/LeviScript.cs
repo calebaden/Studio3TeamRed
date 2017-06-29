@@ -120,6 +120,8 @@ public class LeviScript : MonoBehaviour {
     {
         plantCuttingCanvas.SetActive(false);
         scannerCanvas.SetActive(true);
+
+        
     }
     public void exitCompostBinButton()
     {
@@ -150,20 +152,12 @@ public class LeviScript : MonoBehaviour {
     public void trimPlantsClose()
     {
         trimPlantsCanvas.SetActive(false);
-        taskOne.isOn = false;
-        taskTwo.isOn = false;
-        taskThree.isOn = false;
-        taskFour.isOn = false;
-        taskFive.isOn = false;
+        
     }
     public void collectSecateursClose()
     {
         collectSecateursCanvas.SetActive(false);
-        taskOne.isOn = false;
-        taskTwo.isOn = false;
-        taskThree.isOn = false;
-        taskFour.isOn = false;
-        taskFive.isOn = false;
+        
     }
 
     public void collectSecateurs()
