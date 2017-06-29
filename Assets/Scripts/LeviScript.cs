@@ -9,8 +9,11 @@ public class LeviScript : MonoBehaviour {
     public GameObject scannerCanvas;
     public GameObject questsCanvas;
     public GameObject toolShedCanvas;
+    public GameObject plantCuttingCanvas;
     public GameObject compostCanvas;
     public GameObject questCompleteCanvas;
+    public GameObject collectSecateursCanvas;
+    public GameObject trimPlantsCanvas;
 
     public Toggle taskOne;
     public Toggle taskTwo;
@@ -43,11 +46,17 @@ public class LeviScript : MonoBehaviour {
             taskOne.isOn = true;
         }
 
+        if (plantHasBeenCut)
+        {
+            taskTwo.isOn = true;
+        }
+
+
         if (compostMade)
         {
             taskThree.isOn = true;
         }
-
+                
         if(plantScraps < 0)
         {
             plantScraps = 0;
@@ -76,42 +85,80 @@ public class LeviScript : MonoBehaviour {
         questsCanvas.SetActive(false);
         toolShedCanvas.SetActive(true);
     }
+    public void plantCuttingButtonPressed()
+    {
+        if (collectedSecateurs)
+        {
+            scannerCanvas.SetActive(false);
+            questsCanvas.SetActive(false);
+            plantCuttingCanvas.SetActive(true);
+        }
+        if (!collectedSecateurs)
+        {
+            collectSecateursCanvas.SetActive(true);
+        }    
+    }
     public void compostButtonPressed()
     {
-        scannerCanvas.SetActive(false);
-        questsCanvas.SetActive(false);
-        compostCanvas.SetActive(true);
+        if (plantHasBeenCut)
+        {
+            scannerCanvas.SetActive(false);
+            questsCanvas.SetActive(false);
+            compostCanvas.SetActive(true);
+        }
+        if (!plantHasBeenCut)
+        {
+            trimPlantsCanvas.SetActive(true);
+        }
     }
     public void exitToolShedButton()
     {
         toolShedCanvas.SetActive(false);
         scannerCanvas.SetActive(true);
     }
+    public void exitPlantCuttingButton()
+    {
+        plantCuttingCanvas.SetActive(false);
+        scannerCanvas.SetActive(true);
+    }
     public void exitCompostBinButton()
     {
         compostCanvas.SetActive(false);
         scannerCanvas.SetActive(true);
-    }
-
-    public void taskTwoComplete()
-    {
-        taskTwo.isOn = true;
-    }
-    public void taskThreeComplete()
-    {
-        taskThree.isOn = true;
-    }  
+    }    
 
     public void questComplete()
     {
         if (taskOne.isOn == true && taskTwo.isOn == true && taskThree.isOn == true)
         {
-            questCompleteCanvas.SetActive(true);
+            questCompleteCanvas.SetActive(true);            
         }
     }
     public void questCompleteClose()
-    {
+    {        
+        taskOne.isOn = false;
+        taskTwo.isOn = false;
+        taskThree.isOn = false;
+        //taskFour.isOn = false;
+        //taskFive.isOn = false;
+        collectedSecateurs = false;
+        plantHasBeenCut = false;
+        compostMade = false;        
         questCompleteCanvas.SetActive(false);
+    }
+
+    public void trimPlantsClose()
+    {
+        trimPlantsCanvas.SetActive(false);
+        taskOne.isOn = false;
+        taskTwo.isOn = false;
+        taskThree.isOn = false;
+        taskFour.isOn = false;
+        taskFive.isOn = false;
+    }
+    public void collectSecateursClose()
+    {
+        collectSecateursCanvas.SetActive(false);
         taskOne.isOn = false;
         taskTwo.isOn = false;
         taskThree.isOn = false;
