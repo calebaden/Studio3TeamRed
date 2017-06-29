@@ -7,6 +7,8 @@ public class UI_LoginLogic : MonoBehaviour {
 	public Text usernameEntry;
 	public Text passwordEntry;
 
+    public GameObject loginErrorPanel;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -38,18 +40,21 @@ public class UI_LoginLogic : MonoBehaviour {
 						}
 						else
 						{
+                        loginErrorPanel.SetActive(true);
 							Debug.Log("Password not recognised");
 						}
 				}
 				else
 				{
 					Debug.Log("Username doesn't match the database!");
-				}
+                    loginErrorPanel.SetActive(true);
+                }
 			}
 			else
 			{
 				Debug.Log("username and password keys not found!");
-			}
+                loginErrorPanel.SetActive(true);
+            }
 		}
 		else
 		{
