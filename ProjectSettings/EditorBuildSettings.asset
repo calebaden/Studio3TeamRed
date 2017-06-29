@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Caleb.unity
-    guid: 055ee00ee08be334496e7b1bec24deee
+    path: Assets/Scenes/PrototypeScene.unity
+    guid: 80b9629cee6a8db418217b0328ffd3f9
