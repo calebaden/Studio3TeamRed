@@ -711,13 +711,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 145215554}
   m_TextComponent: {fileID: 1257163764}
   m_Placeholder: {fileID: 1392306202}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -943,13 +943,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 239775715}
   m_TextComponent: {fileID: 130995946}
   m_Placeholder: {fileID: 994258106}
-  m_ContentType: 0
+  m_ContentType: 5
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 4
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1772,7 +1772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &474825725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4287,8 +4287,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1800837928}
   m_TextComponent: {fileID: 945463360}
   m_Placeholder: {fileID: 1238517837}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -4741,13 +4741,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1886384421}
   m_TextComponent: {fileID: 1825478809}
   m_Placeholder: {fileID: 22768461}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
