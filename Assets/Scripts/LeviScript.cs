@@ -8,7 +8,8 @@ public class LeviScript : MonoBehaviour {
     public GameObject gardenButton;
     public GameObject scannerCanvas;
     public GameObject questsCanvas;
-    public GameObject miniGameCanvas;
+    public GameObject toolShedCanvas;
+    public GameObject compostCanvas;
     public GameObject questCompleteCanvas;
 
     public Toggle taskOne;
@@ -19,6 +20,11 @@ public class LeviScript : MonoBehaviour {
 
     public bool collectedSecateurs;
     public GameObject secateurs;
+
+    public bool plantHasBeenCut;
+    public bool compostMade;
+    public int plantScraps = 5;
+    public Text plantScrapNumText;
 
     // Use this for initialization
     void Start()
@@ -36,6 +42,18 @@ public class LeviScript : MonoBehaviour {
             secateurs.SetActive(false);
             taskOne.isOn = true;
         }
+
+        if (compostMade)
+        {
+            taskThree.isOn = true;
+        }
+
+        if(plantScraps < 0)
+        {
+            plantScraps = 0;
+        }
+
+        plantScrapNumText.text = "x" + (int)plantScraps;
     }
 
     public void gardenButtonPressed()
@@ -52,18 +70,29 @@ public class LeviScript : MonoBehaviour {
         questsCanvas.SetActive(false);
         scannerCanvas.SetActive(true);
     }
-    public void minigameButtonPressed()
+    public void toolShedButtonPressed()
     {
         scannerCanvas.SetActive(false);
         questsCanvas.SetActive(false);
-        miniGameCanvas.SetActive(true);
+        toolShedCanvas.SetActive(true);
     }
-    public void exitMiniGameButton()
+    public void compostButtonPressed()
     {
-        miniGameCanvas.SetActive(false);
+        scannerCanvas.SetActive(false);
+        questsCanvas.SetActive(false);
+        compostCanvas.SetActive(true);
+    }
+    public void exitToolShedButton()
+    {
+        toolShedCanvas.SetActive(false);
         scannerCanvas.SetActive(true);
     }
-        
+    public void exitCompostBinButton()
+    {
+        compostCanvas.SetActive(false);
+        scannerCanvas.SetActive(true);
+    }
+
     public void taskTwoComplete()
     {
         taskTwo.isOn = true;
@@ -93,6 +122,12 @@ public class LeviScript : MonoBehaviour {
     public void collectSecateurs()
     {
         collectedSecateurs = true; 
+    }
+
+    public void dropPlantScraps()
+    {
+        plantScraps -= 1;
+        compostMade = true;
     }
 
 }
