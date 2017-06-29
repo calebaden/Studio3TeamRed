@@ -13,9 +13,13 @@ public class VirtualGardenScript : MonoBehaviour
     [SerializeField]
     private GameObject plantInfo;
     [SerializeField]
+    private GameObject moreInfo;
+    [SerializeField]
     private Text seeds;
     [SerializeField]
     private Text plantTitle;
+    [SerializeField]
+    private Text infoTitle;
 
     public GardenPlotScript selectedPlot;
     public Texture2D waterCursor;
@@ -33,6 +37,7 @@ public class VirtualGardenScript : MonoBehaviour
     {
         seedSelect.SetActive(false);
         plantInfo.SetActive(false);
+        moreInfo.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -152,5 +157,19 @@ public class VirtualGardenScript : MonoBehaviour
     public void WaterExit ()
     {
         isHovering = false;
+    }
+
+    public void MoreInfo ()
+    {
+        if (selectedPlot.plantType == "Sunflower")
+        {
+            infoTitle.text = "Sunflower";
+        }
+        else
+        {
+            infoTitle.text = "Carrot";
+        }
+
+        moreInfo.gameObject.SetActive(true);
     }
 }
