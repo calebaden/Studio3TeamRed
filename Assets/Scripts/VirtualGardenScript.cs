@@ -14,12 +14,19 @@ public class VirtualGardenScript : MonoBehaviour
     private GameObject plantInfo;
     [SerializeField]
     private Text seeds;
+    [SerializeField]
+    private Text plantTitle;
 
-    public GameObject selectedPlot;
+    public GardenPlotScript selectedPlot;
+    public Texture2D waterCursor;
 
     public Slider growthSlider;
+    public Slider waterSlider;
 
     public int seedCount;
+
+    private bool isWatering = false;
+    private bool isHovering;
 
     // Use this for initialization
     void Start ()
@@ -33,10 +40,16 @@ public class VirtualGardenScript : MonoBehaviour
     {
 		if (plantInfo.activeSelf == true && selectedPlot != null)
         {
-            growthSlider.value = selectedPlot.GetComponent<GardenPlotScript>().growthAmount;
+            growthSlider.value = selectedPlot.growthAmount;
+            waterSlider.value = selectedPlot.waterAmount;
         }
 
         seeds.text = seedCount + " X";
+
+        if (isHovering && Input.GetMouseButton(0))
+        {
+            selectedPlot.WaterPlant();
+        }
 	}
 
     public void LoadScene (int buildIndex)
@@ -47,19 +60,30 @@ public class VirtualGardenScript : MonoBehaviour
     // Enables the seed select window if it is currently disabled
     public void SelectPlot (GameObject plot)
     {
-        selectedPlot = plot;
-        if (selectedPlot.GetComponent<GardenPlotScript>().plotState == 0)
+        selectedPlot = plot.GetComponent<GardenPlotScript>();
+        if (!isWatering)
         {
-            if (seedSelect.activeSelf == false)
+            if (selectedPlot.plotState == 0)
             {
-                seedSelect.SetActive(true);
+                if (seedSelect.activeSelf == false)
+                {
+                    seedSelect.SetActive(true);
+                }
             }
-        }
-        else
-        {
-            if (plantInfo.activeSelf == false)
+            else
             {
-                plantInfo.SetActive(true);
+                if (plantInfo.activeSelf == false)
+                {
+                    plantInfo.SetActive(true);
+                    if (selectedPlot.plantType == "Sunflower")
+                    {
+                        plantTitle.text = "Sunflower";
+                    }
+                    else if (selectedPlot.plantType == "Carrot")
+                    {
+                        plantTitle.text = "Carrot";
+                    }
+                }
             }
         }
     }
@@ -77,7 +101,7 @@ public class VirtualGardenScript : MonoBehaviour
     {
         if (seedCount > 0)
         {
-            selectedPlot.GetComponent<GardenPlotScript>().UpdatePlant(type);
+            selectedPlot.UpdatePlant(type);
             seedCount--;
             CloseWindow(seedSelect);
         }
@@ -85,5 +109,47 @@ public class VirtualGardenScript : MonoBehaviour
         {
             Debug.Log("You have no seeds!");
         }
+    }
+
+    public void OnWaterClick ()
+    {
+        if (!isWatering)
+        {
+            isWatering = true;
+            Cursor.SetCursor(waterCursor, Vector2.zero, CursorMode.Auto);
+            foreach (GameObject plot in GameObject.FindGameObjectsWithTag("GardenPlot"))
+            {
+                if (plot.GetComponent<GardenPlotScript>().plotState != 0)
+                {
+                    plot.GetComponent<GardenPlotScript>().plotWater.gameObject.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            isWatering = false;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            foreach (GameObject plot in GameObject.FindGameObjectsWithTag("GardenPlot"))
+            {
+                if (plot.GetComponent<GardenPlotScript>().plotWater.gameObject.activeSelf)
+                {
+                    plot.GetComponent<GardenPlotScript>().plotWater.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    public void WaterEnter (GameObject plot)
+    {
+        selectedPlot = plot.GetComponent<GardenPlotScript>();
+        if (selectedPlot.plotState != 0)
+        {
+            isHovering = true;
+        }
+    }
+
+    public void WaterExit ()
+    {
+        isHovering = false;
     }
 }
