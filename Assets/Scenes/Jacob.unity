@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 130995947}
   - component: {fileID: 130995946}
   m_Layer: 5
-  m_Name: Text
+  m_Name: UI_NameTextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1069,7 @@ Prefab:
     - target: {fileID: 224660046161770688, guid: 985c066359a72474b8539b6dd7340ceb,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224660046161770688, guid: 985c066359a72474b8539b6dd7340ceb,
         type: 2}
@@ -1140,6 +1140,7 @@ GameObject:
   - component: {fileID: 306515910}
   - component: {fileID: 306515909}
   - component: {fileID: 306515908}
+  - component: {fileID: 306515911}
   m_Layer: 5
   m_Name: UI_GenderMaleSelection
   m_TagString: Untagged
@@ -1204,7 +1205,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 306515909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 306515911}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &306515909
@@ -1240,6 +1252,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 306515906}
+--- !u!114 &306515911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306515906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72720c1e1de321940abd00a2f597f2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMaleButton: 1
+  createButton: {fileID: 700312051}
 --- !u!1 &332841095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1558,7 @@ GameObject:
   - component: {fileID: 428777159}
   - component: {fileID: 428777158}
   - component: {fileID: 428777157}
+  - component: {fileID: 428777160}
   m_Layer: 5
   m_Name: UI_GenderFemaleSelection
   m_TagString: Untagged
@@ -1597,7 +1623,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 428777158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 428777160}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &428777158
@@ -1633,6 +1670,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 428777155}
+--- !u!114 &428777160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 428777155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72720c1e1de321940abd00a2f597f2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMaleButton: 0
+  createButton: {fileID: 700312051}
 --- !u!1 &474825724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1805,7 @@ GameObject:
   - component: {fileID: 529904123}
   - component: {fileID: 529904122}
   m_Layer: 0
-  m_Name: Keys
+  m_Name: KeysScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1785,11 +1835,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529904121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 269.0771, y: 502.10178, z: -633.2877}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534049398
 GameObject:
@@ -2149,12 +2199,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700312051}
-        m_MethodName: 
+      - m_Target: {fileID: 700312056}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2206,6 +2256,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11351a07e55cc774c85ae6245a5f4f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameEntry: {fileID: 130995946}
+  ageEntry: {fileID: 1257163764}
+  gradeEntry: {fileID: 1825478809}
+  usernameEntry: {fileID: 808979458}
+  passwordEntry: {fileID: 945463360}
+  genderEntry: 0
 --- !u!1 &783164279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,7 +2423,7 @@ GameObject:
   - component: {fileID: 808979459}
   - component: {fileID: 808979458}
   m_Layer: 5
-  m_Name: Text
+  m_Name: UI_UsernameTextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2705,7 +2761,7 @@ GameObject:
   - component: {fileID: 945463361}
   - component: {fileID: 945463360}
   m_Layer: 5
-  m_Name: Text
+  m_Name: UI_PasswordTextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3056,71 +3112,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1117992637}
---- !u!1 &1121799358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1121799360}
-  - component: {fileID: 1121799359}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1121799359
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1121799358}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1121799360
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1121799358}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1127377695
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,7 +3273,7 @@ GameObject:
   - component: {fileID: 1257163765}
   - component: {fileID: 1257163764}
   m_Layer: 5
-  m_Name: Text
+  m_Name: UI_AgeTextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4154,7 +4145,7 @@ GameObject:
   - component: {fileID: 1825478810}
   - component: {fileID: 1825478809}
   m_Layer: 5
-  m_Name: Text
+  m_Name: UI_GradeTextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4536,7 +4527,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4327702518089390, guid: be2a518960c73bf4e9fe80648a8a6ad7, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be2a518960c73bf4e9fe80648a8a6ad7, type: 2}
