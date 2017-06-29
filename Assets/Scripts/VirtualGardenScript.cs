@@ -52,36 +52,34 @@ public class VirtualGardenScript : MonoBehaviour
         }
 	}
 
-    public void LoadScene (int buildIndex)
-    {
-        SceneManager.LoadScene(buildIndex);
-    }
-
     // Enables the seed select window if it is currently disabled
     public void SelectPlot (GameObject plot)
     {
-        selectedPlot = plot.GetComponent<GardenPlotScript>();
-        if (!isWatering)
+        if (plantInfo.gameObject.activeSelf == false)
         {
-            if (selectedPlot.plotState == 0)
+            selectedPlot = plot.GetComponent<GardenPlotScript>();
+            if (!isWatering)
             {
-                if (seedSelect.activeSelf == false)
+                if (selectedPlot.plotState == 0)
                 {
-                    seedSelect.SetActive(true);
-                }
-            }
-            else
-            {
-                if (plantInfo.activeSelf == false)
-                {
-                    plantInfo.SetActive(true);
-                    if (selectedPlot.plantType == "Sunflower")
+                    if (seedSelect.activeSelf == false)
                     {
-                        plantTitle.text = "Sunflower";
+                        seedSelect.SetActive(true);
                     }
-                    else if (selectedPlot.plantType == "Carrot")
+                }
+                else
+                {
+                    if (plantInfo.activeSelf == false)
                     {
-                        plantTitle.text = "Carrot";
+                        plantInfo.SetActive(true);
+                        if (selectedPlot.plantType == "Sunflower")
+                        {
+                            plantTitle.text = "Sunflower";
+                        }
+                        else if (selectedPlot.plantType == "Carrot")
+                        {
+                            plantTitle.text = "Carrot";
+                        }
                     }
                 }
             }
@@ -141,10 +139,13 @@ public class VirtualGardenScript : MonoBehaviour
 
     public void WaterEnter (GameObject plot)
     {
-        selectedPlot = plot.GetComponent<GardenPlotScript>();
-        if (selectedPlot.plotState != 0)
+        if (plantInfo.gameObject.activeSelf == false)
         {
-            isHovering = true;
+            selectedPlot = plot.GetComponent<GardenPlotScript>();
+            if (selectedPlot.plotState != 0)
+            {
+                isHovering = true;
+            }
         }
     }
 

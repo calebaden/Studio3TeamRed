@@ -114,5 +114,6 @@ public class GardenPlotScript : MonoBehaviour
     public void WaterPlant ()
     {
         waterAmount += waterIncrease * Time.deltaTime;
+        waterAmount = Mathf.Clamp01(waterAmount);
     }
 }
