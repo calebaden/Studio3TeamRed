@@ -25,6 +25,13 @@ public class VirtualGardenScript : MonoBehaviour
 
     public Slider growthSlider;             // Slider showing the growth percentage of a plant in the plantInfo window
     public Slider waterSlider;              // Slider showing the water amount of a plant in the plantInfo window
+    public Slider weedSlider;               // Slider showing the amount of weeds currently populating the garden
+
+    public Image weedSliderFill;            // Image for the fill area located on the weedSlider
+    public float weedGrowth;                // The rate at which the weeds grow
+    public int weedSliderMaxRed;            // This is the max Red value of the weed slider fill colour
+    public GameObject weedWarning;          // Includes the warning image and text displayed when weeds are overgrown
+    public GameObject weedMinigame;         // Prefab of weed minigame
 
     public int seedCount;                   // Integer storing the players seed inventory count
 
@@ -38,6 +45,7 @@ public class VirtualGardenScript : MonoBehaviour
         seedSelect.SetActive(false);
         plantInfo.SetActive(false);
         moreInfo.SetActive(false);
+        weedWarning.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -58,6 +66,23 @@ public class VirtualGardenScript : MonoBehaviour
         {
             selectedPlot.WaterPlant();
         }
+
+        // Increase the amount of weeds over time; when at maximum, enable the warning window
+        if (weedSlider.value < 1)
+        {
+            weedSlider.value += weedGrowth * Time.deltaTime;
+            weedSlider.value = Mathf.Clamp01(weedSlider.value);
+        }
+        else if (!weedWarning.activeSelf)
+        {
+            weedWarning.SetActive(true);
+        }
+
+        // Sets the weed slider fill color depending on its value; 1 = green, 0 = dark green/yellow
+        Color col = weedSliderFill.color;
+        col.r = weedSlider.value * weedSliderMaxRed;
+        col.r /= 255;
+        weedSliderFill.color = col;
 	}
 
     // Function called when a player uses the garden plot buttons
@@ -189,5 +214,10 @@ public class VirtualGardenScript : MonoBehaviour
         }
 
         moreInfo.gameObject.SetActive(true);
+    }
+
+    public void EngageMinigame()
+    {
+        Instantiate(weedMinigame, gameObject.transform);
     }
 }

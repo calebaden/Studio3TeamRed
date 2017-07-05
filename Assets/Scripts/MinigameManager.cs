@@ -29,4 +29,14 @@ public class MinigameManager : MonoBehaviour
             congratsMessage.gameObject.SetActive(true);
         }
     }
+
+    public void EndMinigame (GameObject panel)
+    {
+        Destroy(panel);
+        if (GameObject.FindGameObjectWithTag("VirtualGarden").activeSelf)
+        {
+            GameObject.FindGameObjectWithTag("VirtualGarden").GetComponent<VirtualGardenScript>().weedSlider.value = 0;
+            GameObject.FindGameObjectWithTag("VirtualGarden").GetComponent<VirtualGardenScript>().weedWarning.SetActive(false);
+        }
+    }
 }
