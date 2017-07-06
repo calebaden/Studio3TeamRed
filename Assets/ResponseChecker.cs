@@ -26,10 +26,10 @@ public class ResponseChecker : MonoBehaviour {
 		
 	}
 
-	public void OnClick()
+	public void OnClick(int index)
 	{
 		//Check if the answer is correct
-		if(SelectedResult == DesiredResult)
+		if(index == 1)
 		{
 			Debug.Log("Response is correct");
 
@@ -42,6 +42,7 @@ public class ResponseChecker : MonoBehaviour {
 			Debug.Log("Response is incorrect");
 			//Switch to the Quests Scene
 			incorrectPanel.SetActive(true);
+            correctPanel.SetActive(true);
 			thisQuestionnairePanel.SetActive(false);
 			//Switch to the weed pulling game
 		}

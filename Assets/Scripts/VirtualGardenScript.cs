@@ -216,8 +216,13 @@ public class VirtualGardenScript : MonoBehaviour
         moreInfo.gameObject.SetActive(true);
     }
 
+    // Called when clicking the weeds slider to activate the weed pulling minigame
     public void EngageMinigame()
     {
         Instantiate(weedMinigame, gameObject.transform);
+        if (isWatering)
+        {
+            OnWaterClick();
+        }
     }
 }
