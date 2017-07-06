@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1264,6 +1264,40 @@ Prefab:
     - target: {fileID: 1182815170201660, guid: c4df12cec3cadba409f646a75ce860de, type: 2}
       propertyPath: m_TagString
       value: VirtualGarden
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738481186286174, guid: c4df12cec3cadba409f646a75ce860de, type: 2}
+      propertyPath: m_Name
+      value: UI_QuestsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528125945462394, guid: c4df12cec3cadba409f646a75ce860de,
+        type: 2}
+      propertyPath: m_Text
+      value: Quests
+      objectReference: {fileID: 0}
+    - target: {fileID: 224261065512799506, guid: c4df12cec3cadba409f646a75ce860de,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 893
+      objectReference: {fileID: 0}
+    - target: {fileID: 224968470299984434, guid: c4df12cec3cadba409f646a75ce860de,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -890
+      objectReference: {fileID: 0}
+    - target: {fileID: 224968470299984434, guid: c4df12cec3cadba409f646a75ce860de,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224968470299984434, guid: c4df12cec3cadba409f646a75ce860de,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224968470299984434, guid: c4df12cec3cadba409f646a75ce860de,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 497
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4df12cec3cadba409f646a75ce860de, type: 2}
